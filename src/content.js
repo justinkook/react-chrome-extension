@@ -35,7 +35,8 @@ chrome.runtime.onMessage.addListener(
       }
       
       if (request.message == "getSource") {
-        localStorage.setItem('averagePrice', request.source[0]);
+        localStorage.setItem('averagePrice', request.source[0].averagePrice);
+        localStorage.setItem('searchTerm', request.source[0].searchTerm);
       }
    }
 );

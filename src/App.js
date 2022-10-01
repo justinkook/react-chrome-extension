@@ -9,13 +9,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      averagePrice: JSON.parse(localStorage.getItem('averagePrice'))
+      searchTerm: localStorage.getItem('searchTerm'),
+      averagePrice: localStorage.getItem('averagePrice')
     }
   }
 
   componentDidUpdate = () => {
     window.addEventListener('storage', () => {
-       this.setState(JSON.parse(localStorage.getItem('averagePrice')) || [])   
+       this.setState({ averagePrice: localStorage.getItem('averagePrice'), searchTerm: localStorage.getItem('searchTerm')})
     });
   }
 
@@ -29,9 +30,9 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
           }
 
-          <h1 className="App-title">Average Price</h1>
+          <h1 className="App-title">{this.state.searchTerm}</h1>
         </header>
-        <p id="status" className="App-intro">{this.state.averagePrice}</p>
+        <p id="status" className="App-intro">Average Price : {this.state.averagePrice}</p>
       </div>
     );
   }

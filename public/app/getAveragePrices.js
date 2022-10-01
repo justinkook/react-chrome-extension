@@ -1,5 +1,6 @@
 (() => {
     const domContent = document.querySelectorAll(".a-offscreen");
+    const searchTerm = document.title.replace('Amazon.com : ','');
     let sum = 0;
     for (const element of domContent) {
         if (element.innerText.includes('$')) {
@@ -7,6 +8,6 @@
             sum += converted;
         }
     }
-    
-    return averagePrice = sum / domContent.length;
+
+    return { searchTerm, averagePrice: sum / domContent.length }
 })();
