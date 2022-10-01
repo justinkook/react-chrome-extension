@@ -25,8 +25,13 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "zip": "npm pack",
+    "postpack": "tarball=$(npm list --depth 0 | sed 's/@/-/g; s/ .*/.tgz/g; 1q;'); tar -tf $tarball | sed 's/^package\\///' | zip -@r package; rm $tarball"
   },
+  "files": [
+    "/build"
+  ],
   "watch": {
     "build": {
       "patterns": [
