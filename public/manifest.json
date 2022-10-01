@@ -1,6 +1,6 @@
 {
-  "short_name": "My Extension",
-  "name": "My Extension",
+  "short_name": "Price Averager",
+  "name": "Price Averager",
   "version": "1.1",
   "manifest_version": 2,
   "background": {
@@ -9,7 +9,7 @@
   "browser_action": {},
   "content_scripts" : [
     {
-      "matches": [ "<all_urls>" ],
+      "matches": [ "*://*.amazon.com/*" ],
       "css": ["/css/root.css"],
       "js": ["/static/js/content.js"]
     }
