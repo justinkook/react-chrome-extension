@@ -1,6 +1,3 @@
-
-let averagePrice = 0;
-
 // activate extension when host is www.website.com
 chrome.runtime.onInstalled.addListener(function() {
 	chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {

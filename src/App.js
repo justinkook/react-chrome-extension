@@ -9,13 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      averagePrice: localStorage.getItem('averagePrice')
+      averagePrice: JSON.parse(localStorage.getItem('averagePrice'))
     }
   }
 
   componentDidUpdate = () => {
     window.addEventListener('storage', () => {
-       this.setState(JSON.parse(localStorage.getItem('myCart')) || [])   
+       this.setState(JSON.parse(localStorage.getItem('averagePrice')) || [])   
     });
   }
 
