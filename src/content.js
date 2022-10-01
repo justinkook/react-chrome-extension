@@ -30,12 +30,12 @@ app.style.display = "none";
 
 chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse) {
-      if( request.message === "clicked_browser_action") {
+      if(request.message === "clicked_browser_action") {
         toggle();
       }
       
-      if (request.action == "getSource") {
-        console.log(request.source);
+      if (request.message == "getSource") {
+        localStorage.setItem('averagePrice', request.source[0]);
       }
    }
 );
